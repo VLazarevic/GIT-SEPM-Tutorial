@@ -9,6 +9,8 @@ import java.time.LocalDate;
 public record Horse(
     Long id,
     String name,
+    String breed,
+    String color,
     String description,
     String type,
     Integer age,
