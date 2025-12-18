@@ -13,11 +13,7 @@ public record Horse(
     String type,
     Integer age,
     LocalDate dateOfBirth,
-    Sex sex,
-    Long ownerId,
-    Long imageId,
-    Long motherId,
-    Long fatherId
+    Sex sex
 ) {
 
 }
