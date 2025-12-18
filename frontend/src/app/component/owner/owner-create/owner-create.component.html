@@ -1,0 +1,86 @@
+<h1 class="display-1">Owner Create</h1>
+
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <div class="row">
+    <!-- Start name row -->
+    <div class="mb-2 col-lg-6">
+      <!-- When nesting rows, always make row > col-* > row. The Bootstrap classes do not work right when an element is both col* and row -->
+      <div class="row">
+        <label for="firstName" class="col-form-label text-md-end text-muted col-md-2 col-lg-4">
+          First Name
+        </label>
+        <div class="col-md-10 col-lg-8"
+        >
+          <input type="text"
+                 id="firstName"
+                 name="firstName"
+                 placeholder="First Name"
+                 class="form-control"
+                 [(ngModel)]="owner.firstName"
+                 #horseNameModel="ngModel"
+                 required
+          >
+          <div class="invalid-feedback">
+            <!-- This is shown, when the form validation deems the name input to be invalid -->
+            First Name is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-2 col-lg-6">
+      <!-- When nesting rows, always make row > col-* > row. The Bootstrap classes do not work right when an element is both col* and row -->
+      <div class="row">
+        <label for="lastName" class="col-form-label text-md-end text-muted col-md-2 col-lg-4">
+          Last Name
+        </label>
+        <div class="col-md-10 col-lg-8"
+        >
+          <input type="text"
+                 id="lastName"
+                 name="lastName"
+                 placeholder="Last Name"
+                 class="form-control"
+                 [(ngModel)]="owner.lastName"
+                 #horseNameModel="ngModel"
+                 required
+          >
+          <div class="invalid-feedback">
+            <!-- This is shown, when the form validation deems the name input to be invalid -->
+            Last Name is required
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row-mb-2">
+    <div class="row">
+      <label for="description" class="col-form-label text-md-end text-muted col-md-2">
+        Description
+      </label>
+      <div class="col-md-10"
+      >
+        <textarea
+          class="form-control"
+          id="description"
+          name="description"
+          [(ngModel)]="owner.description">
+      </textarea>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mt-4 d-flex flex-row">
+    <span class="flex-grow-1"></span>
+    <button type="submit"
+            class="btn btn-primary"
+            [disabled]="!form.valid"
+            type="submit"
+    >
+      Create
+    </button>
+  </div>
+</form>

@@ -1,0 +1,33 @@
+/*
+DROP TABLE IF EXISTS horse;
+DROP TABLE IF EXISTS image;
+DROP TABLE IF EXISTS owner;
+*/
+
+CREATE TABLE IF NOT EXISTS owner
+(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    description VARCHAR(4095)
+    );
+
+CREATE TABLE IF NOT EXISTS image
+(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    file_type VARCHAR(255) NOT NULL,
+    image BLOB NOT NULL
+    );
+
+CREATE TABLE IF NOT EXISTS horse
+(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(4095),
+    date_of_birth DATE NOT NULL,
+    sex ENUM('MALE', 'FEMALE') NOT NULL,
+    owner_id BIGINT REFERENCES owner (id),
+    image_id BIGINT REFERENCES image (id) UNIQUE,
+    mother_id BIGINT REFERENCES horse(id) ON DELETE SET NULL,
+    father_id BIGINT REFERENCES horse(id) ON DELETE SET NULL
+);

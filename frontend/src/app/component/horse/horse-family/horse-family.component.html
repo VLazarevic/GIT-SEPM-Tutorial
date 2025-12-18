@@ -1,0 +1,19 @@
+<h1 class="display-1">Horse Family Tree</h1>
+
+<div class="d-flex flex-row gap-2 mb-4 align-items-center">
+  <span>Generations:</span>
+  <input [(ngModel)]="gen"/>
+  <button class="btn btn-primary" (click)="reload()">load</button>
+</div>
+
+
+@if (horseFamily) {
+  <app-horse-family-tree [data]="horseFamily" [deleteHorse]="markHorseForDeletion.bind(this)"/>
+}
+
+<app-confirm-delete-dialog
+  id="delete-dialog"
+  [hidden]="!horseForDeletion"
+  [deleteWhat]="horseForDeletion?.name"
+  (confirm)="deleteHorse(horseForDeletion)">
+</app-confirm-delete-dialog>

@@ -1,0 +1,39 @@
+<div class="grid">
+  <div class="d-flex flex-row align-items-center gap-2 bg-light border-black border-1 border mb-1">
+    <button [disabled]="!data.father && !data.mother" (click)="collapsed = !collapsed" class="btn btn-lg btn-light">
+      <i
+        [class]="!data.father && !data.mother ? 'bi-slash-circle' : collapsed ? 'bi-plus-circle' : 'bi-dash-circle'"></i>
+    </button>
+
+    <span class="flex-grow-1">
+      {{ data.name }}
+    </span>
+
+    <span>
+      {{ formattedDateOfBirth }}
+    </span>
+    <span class="d-flex flex-row gap-2 me-2">
+      <a class="btn btn-sm btn-info"
+         aria-label="Show horse details" [routerLink]="['/horses', data.id]">
+                <i class="bi bi-info-lg"></i>
+      </a>
+
+      @if (deleteHorse) {
+        <button class="btn btn-sm btn-danger" (click)="deleteHorse(data)"
+                data-bs-toggle="modal" data-bs-target="#delete-dialog" aria-label="Delete horse">
+        <i class="bi bi-trash"></i>
+      </button>
+      }
+
+    </span>
+  </div>
+  <div [class]="['collapse', 'ms-4', collapsed ? '' : 'show']">
+    @if (data.father) {
+      <app-horse-family-tree [data]="data?.father" [deleteHorse]="deleteHorse"/>
+    }
+
+    @if (data.mother) {
+      <app-horse-family-tree [data]="data?.mother" [deleteHorse]="deleteHorse"/>
+    }
+  </div>
+</div>
