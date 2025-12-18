@@ -10,6 +10,8 @@ public record Horse(
     Long id,
     String name,
     String description,
+    String type,
+    Integer age,
     LocalDate dateOfBirth,
     Sex sex,
     Long ownerId,
