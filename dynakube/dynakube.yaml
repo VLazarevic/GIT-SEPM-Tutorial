@@ -4,4 +4,4 @@ metadata:
   name: dynakube
   namespace: dynatrace
 spec:
-  apiUrl: https://ENVIRONMENTID.live.dynatrace.com/api
+  apiUrl: https://abc12345.live.dynatrace.com/api
