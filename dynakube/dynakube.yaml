@@ -5,3 +5,7 @@ metadata:
   namespace: dynatrace
 spec:
   apiUrl: https://abc12345.live.dynatrace.com/api
+  oneAgent: {}
+  activeGate: {}
+  metadataEnrichment: {}
+  templates: {}
